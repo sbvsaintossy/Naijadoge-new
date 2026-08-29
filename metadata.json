@@ -1,0 +1,7 @@
+{
+  "name": "Naijadoge",
+  "description": "Africa's premier livestreaming and media growth agency empowering creators, hosts, streamers, and agents across Africa. RC 9075257.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
