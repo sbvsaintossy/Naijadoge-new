@@ -1,26 +1,26 @@
 import React from 'react';
 import { Logo } from './Logo';
+import { SocialLinks } from './SocialLinks';
 import { PageType } from '../types';
 import {
   ShieldCheck,
   Lock,
   Mail,
-  Phone,
   MessageSquare,
   Globe2,
-  ArrowUpRight,
   Tv,
-  Coins,
 } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (page: PageType) => void;
-  onOpenApplyModal: (type: 'host' | 'agent') => void;
+  onOpenApplyModal: (type: 'host' | 'agent', platform?: string) => void;
+  onOpenWeChat: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onOpenApplyModal,
+  onOpenWeChat,
 }) => {
   return (
     <footer id="main-footer" className="bg-[#050C16] border-t border-white/10 text-white text-left relative overflow-hidden">
@@ -38,9 +38,18 @@ export const Footer: React.FC<FooterProps> = ({
               <Logo size="lg" showTagline={true} />
             </button>
             <p className="text-xs sm:text-sm text-[#B8C4D3] leading-relaxed max-w-md">
-              Naijadoge is Africa’s premier livestreaming agency, media buying group, and creator monetization infrastructure. We empower thousands of hosts, streamers, and agents across 25+ African nations to generate global wealth.
+              Naijadoge is Africa’s premier livestreaming agency, media buying powerhouse, and creator monetization infrastructure. We represent verified talent across our 6 accredited streaming platforms in 25+ African nations.
             </p>
-            <div className="flex flex-wrap items-center gap-3 pt-1">
+
+            {/* Social Media Integration in Footer */}
+            <div className="pt-2 space-y-2">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] font-bold block">
+                Official Social Profiles
+              </span>
+              <SocialLinks onOpenWeChat={onOpenWeChat} iconSize="md" />
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <div className="flex items-center gap-1.5 px-3 py-1 bg-[#0D1B2A] border border-white/10 rounded-lg text-[11px] font-mono text-[#B8C4D3]">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 <span>Incorporated: RC 9075257</span>
@@ -93,44 +102,23 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* Core Industry Pillars */}
+          {/* Official 6 Streaming Platforms */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-              Core Pillars
+              6 Partner Platforms
             </h4>
             <ul className="space-y-2.5 text-xs text-[#B8C4D3]">
-              <li>
-                <button
-                  onClick={() => onOpenApplyModal('host')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
-                >
-                  Host Recruitment
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onOpenApplyModal('agent')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
-                >
-                  Agent Licensing
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
-                >
-                  Token Reseller Desk
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('services')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
-                >
-                  Salary Clearing Agency
-                </button>
-              </li>
+              {['Bigo Live', 'TikTok Live', 'Olamet', 'Chamet', 'Tandoo', 'Emma'].map((plat) => (
+                <li key={plat}>
+                  <button
+                    onClick={() => onOpenApplyModal('host', plat)}
+                    className="hover:text-[#D4AF37] transition-colors cursor-pointer flex items-center gap-1.5"
+                  >
+                    <Tv className="w-3 h-3 text-[#D4AF37]" />
+                    <span>{plat}</span>
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -161,6 +149,15 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="pt-2 text-[11px] text-[#B8C4D3]/70">
                 Official Head Office: Lomé & Lagos Operations Center
               </div>
+
+              <div className="pt-2">
+                <button
+                  onClick={() => onOpenApplyModal('host')}
+                  className="w-full py-2 px-3 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-lg transition-all cursor-pointer text-center"
+                >
+                  Apply To Stream Today
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -176,7 +173,7 @@ export const Footer: React.FC<FooterProps> = ({
             </span>
             <span>info@naijadoge.com</span>
             <span>+228 973 171 15</span>
-            <span className="text-emerald-400">Enterprise Grade Security Active</span>
+            <span className="text-emerald-400">Formspree Verified</span>
           </div>
 
           <div className="text-[10px] text-[#B8C4D3]/60 font-sans normal-case">

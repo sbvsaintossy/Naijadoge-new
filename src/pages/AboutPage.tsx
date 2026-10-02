@@ -13,13 +13,12 @@ import {
   Coins,
   Megaphone,
   CheckCircle2,
-  Layers,
   ArrowRight,
 } from 'lucide-react';
 
 interface AboutPageProps {
   onNavigate: (page: PageType) => void;
-  onOpenApplyModal: (type: 'host' | 'agent') => void;
+  onOpenApplyModal: (type: 'host' | 'agent', platform?: string) => void;
 }
 
 export const AboutPage: React.FC<AboutPageProps> = ({
@@ -35,25 +34,25 @@ export const AboutPage: React.FC<AboutPageProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-28">
         {/* ================= SECTION 1: HERO & CORPORATE IDENTITY ================= */}
         <section className="space-y-6 max-w-4xl text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/[0.1] text-xs text-[#B8C4D3]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/10 text-xs text-[#B8C4D3]">
             <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
             <span className="font-semibold text-white">Official Corporate Dossier</span>
             <span className="text-white/30">•</span>
             <span className="font-mono text-[#D4AF37] font-bold">RC 9075257</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display text-white tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display text-white tracking-tight leading-[1.08] uppercase">
             ARCHITECTING THE FUTURE OF <br />
-            <span className="gold-gradient-text">AFRICAN DIGITAL MEDIA</span>
+            <span className="text-[#D4AF37]">AFRICAN DIGITAL MEDIA</span>
           </h1>
 
           <p className="text-base sm:text-xl text-[#B8C4D3] font-normal leading-relaxed">
-            Naijadoge is Africa’s premier livestreaming management, media buying, and creator monetization institution. Registered under <strong className="text-white">RC 9075257</strong>, we operate across 25+ African nations to bridge local raw talent with the multi-billion-dollar global streaming ecosystem.
+            Naijadoge is Africa’s premier livestreaming management, media buying, and creator monetization institution. Registered under <strong className="text-white">RC 9075257</strong>, we operate across 25+ African nations to bridge local raw talent with the global livestreaming economy on <strong className="text-white">Bigo, TikTok, Olamet, Chamet, Tandoo, and Emma</strong>.
           </p>
         </section>
 
         {/* ================= SECTION 2: EXECUTIVE BROADCASTING HQ ASSET ================= */}
-        <div className="relative rounded-3xl overflow-hidden border border-white/[0.12] shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
           <img
             src="/src/assets/images/african_media_hq_1788008287624.jpg"
             alt="Naijadoge Executive Media Broadcasting Center"
@@ -62,7 +61,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#07111F] via-[#07111F]/40 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div className="space-y-1">
+            <div className="space-y-1 text-left">
               <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
                 Operations & Governance
               </span>
@@ -70,9 +69,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
                 Pan-African Media Buying & Streamer Network Hub
               </h3>
             </div>
-            <div className="flex items-center gap-3 bg-[#07111F]/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white/[0.1] text-xs font-mono text-[#B8C4D3]">
+            <div className="flex items-center gap-3 bg-[#07111F]/80 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10 text-xs font-mono text-[#B8C4D3]">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Certified Enterprise Governance</span>
+              <span>Certified Enterprise Governance • RC 9075257</span>
             </div>
           </div>
         </div>
@@ -99,211 +98,107 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <Globe2 className="w-6 h-6" />
             </div>
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#5B8DEF]">
-              Institutional Mission
+              Operational Mission
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-display text-white">
-              Institutional Creator Infrastructure
+              Continental Infrastructure
             </h2>
             <p className="text-sm sm:text-base text-[#B8C4D3] leading-relaxed">
-              To eliminate structural barriers across monetization, banking, traffic algorithms, and talent development by deploying cutting-edge media buying campaigns, token liquidity pools, and certified agency support.
+              To dismantle structural friction in creator monetization by providing world-class talent management, algorithmic media buying, direct platform alliances, and instant multi-currency salary clearing across all 54 African nations.
             </p>
           </div>
         </section>
 
-        {/* ================= SECTION 4: WHY HOSTS & AGENTS CHOOSE NAIJADOGE ================= */}
+        {/* ================= SECTION 4: THE 6 PARTNER PLATFORMS ================= */}
         <section className="space-y-8 text-left">
           <div className="space-y-2">
             <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
-              The Competitive Advantage
+              Accredited Agency Operations
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white">
-              Why Africa's Elite Partner With Naijadoge
+            <h2 className="text-3xl sm:text-4xl font-bold font-display text-white">
+              Direct Contracts On Africa’s Premier 6 Platforms
             </h2>
+            <p className="text-sm text-[#B8C4D3] max-w-2xl">
+              Naijadoge maintains verified agency contracts and direct executive communication channels with Bigo Live, TikTok Live, Olamet, Chamet, Tandoo, and Emma.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Why Hosts */}
-            <div className="luxury-card p-8 rounded-2xl space-y-6">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 bg-[#D4AF37]/15 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase rounded-md">
-                  For Creators & Hosts
-                </span>
-                <Sparkles className="w-5 h-5 text-[#D4AF37]" />
-              </div>
-              <h3 className="text-2xl font-bold font-display text-white">
-                Why Top Hosts Choose Naijadoge
-              </h3>
-              <ul className="space-y-3.5 text-sm text-[#B8C4D3]">
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <span><strong>100% Guaranteed Payouts:</strong> Direct multi-currency wire, local bank transfers, and crypto token settlement with zero agency withholding.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <span><strong>Algorithmic Traffic Push:</strong> Verified agency tags trigger boosted viewer placement on TikTok Live, Poppo, Bigo, and Tango discovery feeds.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <span><strong>Dedicated Talent Managers:</strong> 1-on-1 strategy on lighting, PK battle matchmaking, retention scripts, and gift optimization.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
-                  <span><strong>VIP Agency Badge:</strong> Official verification protects hosts against unfair bans, account strikes, and payment delays.</span>
-                </li>
-              </ul>
-              <button
-                onClick={() => onOpenApplyModal('host')}
-                className="w-full py-3 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer transition-all"
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { name: 'Bigo Live', desc: 'Enterprise Host Pool' },
+              { name: 'TikTok Live', desc: 'Global FYP Reach' },
+              { name: 'Olamet', desc: 'Direct Video Chat' },
+              { name: 'Chamet', desc: 'VIP Party Rooms' },
+              { name: 'Tandoo', desc: 'Rapid Growth Stream' },
+              { name: 'Emma', desc: 'Curated VIP Roster' },
+            ].map((p, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-[#0D1B2A] border border-white/10 hover:border-[#D4AF37]/50 transition-all text-center space-y-1"
               >
-                Apply As A Host
-              </button>
-            </div>
-
-            {/* Why Agents */}
-            <div className="luxury-card p-8 rounded-2xl space-y-6">
-              <div className="flex items-center justify-between">
-                <span className="px-3 py-1 bg-[#5B8DEF]/15 border border-[#5B8DEF]/30 text-[#5B8DEF] text-xs font-bold uppercase rounded-md">
-                  For Talent Agents & Leaders
-                </span>
-                <Award className="w-5 h-5 text-[#5B8DEF]" />
+                <div className="w-8 h-8 rounded-lg bg-[#11253E] text-[#D4AF37] mx-auto flex items-center justify-center font-bold text-xs">
+                  {p.name.slice(0, 2).toUpperCase()}
+                </div>
+                <h4 className="text-sm font-bold text-white mt-2">{p.name}</h4>
+                <p className="text-[10px] text-[#B8C4D3]">{p.desc}</p>
               </div>
-              <h3 className="text-2xl font-bold font-display text-white">
-                Why Ambitious Agents Choose Naijadoge
-              </h3>
-              <ul className="space-y-3.5 text-sm text-[#B8C4D3]">
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5B8DEF] shrink-0 mt-0.5" />
-                  <span><strong>Highest Sub-Agency Commission:</strong> Industry-leading rev-share on all sub-host diamonds, points, and platform targets.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5B8DEF] shrink-0 mt-0.5" />
-                  <span><strong>Turnkey Onboarding Tools:</strong> Instant invitation links, automated dashboard analytics, and direct host tracking.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5B8DEF] shrink-0 mt-0.5" />
-                  <span><strong>Wholesale Token Desks:</strong> Access direct-from-platform coin packages at institutional discount rates for resale profit.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#5B8DEF] shrink-0 mt-0.5" />
-                  <span><strong>Enterprise Governance & Protection:</strong> Legally backed under RC 9075257 with contractual dispute resolution.</span>
-                </li>
-              </ul>
-              <button
-                onClick={() => onOpenApplyModal('agent')}
-                className="w-full py-3 bg-[#11253E] hover:bg-[#183457] text-white border border-white/[0.12] text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer transition-all"
-              >
-                Apply As An Agent
-              </button>
-            </div>
+            ))}
           </div>
         </section>
 
-        {/* ================= SECTION 5: HOW NAIJADOGE OPERATES ================= */}
-        <section className="space-y-8 text-left">
-          <div className="space-y-2">
-            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
-              Operational Framework
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white">
-              How Naijadoge Operates & Scales The Industry
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Box 1: Platform Growth */}
-            <div className="luxury-card p-6 rounded-2xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0D1B2A] border border-white/[0.08] flex items-center justify-center text-[#D4AF37]">
-                <Tv className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold font-display text-white">How We Grow Streaming Apps</h4>
-              <p className="text-xs text-[#B8C4D3] leading-relaxed">
-                We supply global livestreaming platforms with hundreds of thousands of daily active African users, driving viewer retention and in-app transactions from day one.
+        {/* ================= SECTION 5: INSTITUTIONAL GOVERNANCE ================= */}
+        <section className="p-8 sm:p-12 rounded-3xl bg-[#0D1B2A] border border-white/10 text-left space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="space-y-3">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
+                Regulatory Compliance
+              </span>
+              <h3 className="text-2xl font-bold font-display text-white">Corporate Governance</h3>
+              <p className="text-xs sm:text-sm text-[#B8C4D3] leading-relaxed">
+                Incorporated under Corporate Affairs Commission registry <strong className="text-white font-mono">RC 9075257</strong>, Naijadoge operates in strict compliance with African and international digital commerce laws.
               </p>
             </div>
 
-            {/* Box 2: Platform Promotion */}
-            <div className="luxury-card p-6 rounded-2xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0D1B2A] border border-white/[0.08] flex items-center justify-center text-[#5B8DEF]">
-                <Megaphone className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold font-display text-white">Promoting New Platforms</h4>
-              <p className="text-xs text-[#B8C4D3] leading-relaxed">
-                When a new streaming platform launches, Naijadoge seeds high-energy anchor hosts, coordinates viral kickoff tournaments, and accelerates market penetration.
+            <div className="space-y-3">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#5B8DEF]">
+                Financial Clearing
+              </span>
+              <h3 className="text-2xl font-bold font-display text-white">100% Payout Security</h3>
+              <p className="text-xs sm:text-sm text-[#B8C4D3] leading-relaxed">
+                All host and sub-agent earnings are protected by escrow guarantees and multi-currency clearing gateways (NGN, GHS, KES, ZAR, USD, USDT) ensuring zero delayed payouts.
               </p>
             </div>
 
-            {/* Box 3: Host Recruitment */}
-            <div className="luxury-card p-6 rounded-2xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0D1B2A] border border-white/[0.08] flex items-center justify-center text-[#D4AF37]">
-                <Users className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold font-display text-white">Rigorous Host Recruitment</h4>
-              <p className="text-xs text-[#B8C4D3] leading-relaxed">
-                Our talent scouts operate across 25+ nations, screening for charisma, consistency, and stage presence before enrolling candidates in elite training bootcamps.
-              </p>
-            </div>
-
-            {/* Box 4: Host Management */}
-            <div className="luxury-card p-6 rounded-2xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0D1B2A] border border-white/[0.08] flex items-center justify-center text-[#5B8DEF]">
-                <Layers className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold font-display text-white">Scientific Host Management</h4>
-              <p className="text-xs text-[#B8C4D3] leading-relaxed">
-                We track broadcast hours, coin conversion metrics, and audience retention, adjusting streaming schedules to align with peak gifting timezones in the US, Europe, and Asia.
-              </p>
-            </div>
-
-            {/* Box 5: Media Buying Powerhouse */}
-            <div className="luxury-card p-6 rounded-2xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0D1B2A] border border-white/[0.08] flex items-center justify-center text-[#D4AF37]">
-                <TrendingUp className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold font-display text-white">Media Buying Dominance</h4>
-              <p className="text-xs text-[#B8C4D3] leading-relaxed">
-                We deploy targeted programmatic ad campaigns, influencer cross-promotions, and high-converting performance marketing to funnel paying audiences directly into live rooms.
-              </p>
-            </div>
-
-            {/* Box 6: Token Reseller & Coin Desk */}
-            <div className="luxury-card p-6 rounded-2xl space-y-3">
-              <div className="w-10 h-10 rounded-lg bg-[#0D1B2A] border border-white/[0.08] flex items-center justify-center text-[#5B8DEF]">
-                <Coins className="w-5 h-5" />
-              </div>
-              <h4 className="text-lg font-bold font-display text-white">Token Reseller & Coin Desk</h4>
-              <p className="text-xs text-[#B8C4D3] leading-relaxed">
-                As authorized institutional coin agents, we provide high-volume streamers and agencies with discounted in-app tokens, frictionless liquidity, and fiat conversions.
+            <div className="space-y-3">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-emerald-400">
+                Talent Protection
+              </span>
+              <h3 className="text-2xl font-bold font-display text-white">Host Safe Haven</h3>
+              <p className="text-xs sm:text-sm text-[#B8C4D3] leading-relaxed">
+                We provide round-the-clock dispute resolution, fast-track shadowban escalation, copyright and anti-harassment safeguards for every enrolled creator.
               </p>
             </div>
           </div>
-        </section>
 
-        {/* ================= SECTION 6: EXECUTIVE CALL TO ACTION ================= */}
-        <div className="luxury-card p-10 sm:p-12 rounded-3xl text-center space-y-6 border border-[#D4AF37]/30">
-          <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
-            RC 9075257 Corporate Registration
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-white">
-            Partner With Africa’s Most Trusted Agency
-          </h2>
-          <p className="text-sm sm:text-base text-[#B8C4D3] max-w-xl mx-auto">
-            Get onboarded with Naijadoge today or speak directly with our executive desk to explore enterprise media buying and platform promotion contracts.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-[#11253E] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <span className="text-xs font-bold text-white block">Official Registration Active</span>
+                <span className="text-[11px] font-mono text-[#B8C4D3]">RC 9075257 • Federal Republic of Nigeria</span>
+              </div>
+            </div>
+
             <button
               onClick={() => onOpenApplyModal('host')}
-              className="px-8 py-3.5 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer"
+              className="px-6 py-3 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md"
             >
-              Become A Host
-            </button>
-            <button
-              onClick={() => onNavigate('contact')}
-              className="px-8 py-3.5 bg-[#0D1B2A] hover:bg-white/[0.05] text-white border border-white/[0.1] text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer"
-            >
-              Contact Corporate Desk
+              Enroll In Naijadoge Network
             </button>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

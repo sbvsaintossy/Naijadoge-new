@@ -14,11 +14,12 @@ import {
   ShieldCheck,
   Zap,
   Sparkles,
+  Radio,
 } from 'lucide-react';
 
 interface ServicesPageProps {
   onNavigate: (page: PageType) => void;
-  onOpenApplyModal: (type: 'host' | 'agent') => void;
+  onOpenApplyModal: (type: 'host' | 'agent', platform?: string) => void;
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({
@@ -34,12 +35,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       tagline: 'Discovering & Incubating Africa’s Next Top Creators',
       iconName: 'Users',
       shortExplanation:
-        'We identify, vet, and recruit high-potential African talent, transforming raw charisma into high-earning global livestreaming personalities across TikTok Live, Poppo, and Bigo.',
+        'We identify, vet, and recruit high-potential African talent, transforming raw charisma into high-earning global livestreaming personalities across Bigo, TikTok, Olamet, Chamet, Tandoo, and Emma.',
       benefits: [
         'Direct fast-track verification & instant approval',
-        'Professional stage presence & audio/lighting bootcamp',
+        'Professional stage presence, lighting & audio masterclass',
         'Zero setup fee with immediate gifting activation',
-        'Access to private VIP creator community & battle alliances',
+        'Access to private VIP creator alliances & battle war chests',
       ],
       ctaText: 'Apply As A Host',
       highlightMetric: '5,000+ Enrolled',
@@ -55,7 +56,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       benefits: [
         'Institutional revenue share on all sub-host diamond volume',
         'Complete agent dashboard & real-time analytics suite',
-        'Regional exclusive recruitment rights in key territories',
+        'Regional exclusive recruitment rights in key African territories',
         'Contractual protection under legal RC 9075257 framework',
       ],
       ctaText: 'Apply As An Agent',
@@ -72,7 +73,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       benefits: [
         'Dedicated 1-on-1 agency talent manager',
         'Peak timezone optimization (US, UK, Middle East, Europe)',
-        'Algorithmic banner placements & feature boosts',
+        'Algorithmic banner placements & FYP feature boosts',
         'Account safety, shadowban removal & dispute escalation',
       ],
       ctaText: 'Get Managed',
@@ -102,7 +103,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       tagline: 'Turnkey African Market Penetration For Apps',
       iconName: 'Tv',
       shortExplanation:
-        'We help new and expanding livestreaming platforms achieve instant critical mass across Africa by deploying hundreds of anchor hosts, live tournaments, and localized marketing blitzes.',
+        'We help premier livestreaming platforms achieve instant critical mass across Africa by deploying hundreds of anchor hosts, live tournaments, and localized marketing blitzes.',
       benefits: [
         'Instant deployment of 500+ verified active daily hosts',
         'Localized marketing campaigns across Nigeria, Ghana, Kenya, SA',
@@ -166,9 +167,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
     },
   ];
 
-  const filteredServices = activeTab === 'all'
-    ? servicesData
-    : servicesData.filter((s) => s.category === activeTab);
+  const filteredServices =
+    activeTab === 'all'
+      ? servicesData
+      : servicesData.filter((s) => s.category === activeTab);
 
   const getServiceIcon = (name: string) => {
     switch (name) {
@@ -205,45 +207,45 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
   return (
     <div className="relative min-h-screen bg-[#07111F] text-white pt-28 sm:pt-36 pb-24 overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="absolute top-20 left-1/3 w-[600px] h-[600px] bg-[#11253E]/40 rounded-full blur-[160px] pointer-events-none -z-10" />
+      {/* Background Lighting Ambience */}
+      <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-[#11253E]/30 rounded-full blur-[160px] pointer-events-none -z-10" />
       <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {/* Header Section */}
+        {/* ================= PAGE HEADER ================= */}
         <div className="space-y-4 max-w-3xl text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/[0.1] text-xs text-[#B8C4D3]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/10 text-xs text-[#B8C4D3]">
             <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
-            <span className="font-semibold text-white">Full-Stack Livestreaming Capabilities</span>
+            <span className="font-semibold text-white">Full-Stack Creator & Enterprise Infrastructure</span>
             <span className="text-white/30">•</span>
-            <span className="font-mono text-[#D4AF37] font-bold">8 Core Pillars</span>
+            <span className="font-mono text-[#D4AF37] font-bold">RC 9075257</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black font-display text-white tracking-tight leading-[1.08]">
-            ENTERPRISE SERVICES & <br />
-            <span className="gold-gradient-text">MONETIZATION PILLARS</span>
+          <h1 className="text-4xl sm:text-6xl font-black font-display text-white tracking-tight leading-[1.08] uppercase">
+            THE 8 PILLARS OF <br />
+            <span className="text-[#D4AF37]">PAN-AFRICAN STREAMING POWER</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#B8C4D3] leading-relaxed">
-            From talent incubation and algorithmic media buying to high-volume token wholesaling and cross-border salary settlement, Naijadoge powers the entire African livestream economy.
+            From talent scouting in Lagos and Nairobi to wholesale token liquidity desks and daily foreign currency clearing across Bigo, TikTok, Olamet, Chamet, Tandoo, and Emma.
           </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap items-center gap-2 border-b border-white/[0.08] pb-4">
+        {/* ================= FILTER PILLS ================= */}
+        <div className="flex flex-wrap items-center gap-2.5 border-b border-white/10 pb-6">
           {[
-            { id: 'all', label: 'All 8 Services' },
-            { id: 'talent', label: 'Talent & Management' },
-            { id: 'growth', label: 'Growth & Media Buying' },
-            { id: 'monetization', label: 'Coins & Salary Agency' },
+            { id: 'all', label: 'All 8 Enterprise Pillars' },
+            { id: 'talent', label: 'Talent & Agency Management' },
+            { id: 'growth', label: 'Media Buying & Promotion' },
+            { id: 'monetization', label: 'Coins, Tokens & Salary Clearing' },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 activeTab === tab.id
-                  ? 'bg-[#11253E] text-[#D4AF37] border border-[#D4AF37]/30 shadow-md'
-                  : 'text-[#B8C4D3] hover:text-white hover:bg-white/[0.04]'
+                  ? 'bg-[#D4AF37] text-[#07111F] shadow-[0_2px_15px_rgba(212,175,55,0.3)]'
+                  : 'bg-[#0D1B2A] hover:bg-[#11253E] text-[#B8C4D3] hover:text-white border border-white/10'
               }`}
             >
               {tab.label}
@@ -251,51 +253,48 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
           ))}
         </div>
 
-        {/* ================= THE 8 LUXURY SERVICES CARDS GRID ================= */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredServices.map((svc) => (
+        {/* ================= SERVICES 8 PILLARS GRID ================= */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 text-left">
+          {filteredServices.map((service) => (
             <div
-              key={svc.id}
-              id={`service-card-${svc.id}`}
-              className="luxury-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between space-y-6 text-left relative overflow-hidden group"
+              key={service.id}
+              id={`service-card-${service.id}`}
+              className="luxury-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between space-y-8 hover:border-[#D4AF37]/50 transition-all group"
             >
-              {/* Top Accent line on hover */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              <div className="space-y-5">
-                {/* Header Icon + Metric Badge */}
+              <div className="space-y-6">
+                {/* Header Row */}
                 <div className="flex items-center justify-between">
-                  <div className="w-16 h-16 rounded-2xl bg-[#0D1B2A] border border-white/[0.1] flex items-center justify-center group-hover:border-[#D4AF37]/50 transition-colors shadow-inner">
-                    {getServiceIcon(svc.iconName)}
+                  <div className="w-14 h-14 rounded-2xl bg-[#0D1B2A] border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    {getServiceIcon(service.iconName)}
                   </div>
-                  <span className="px-3 py-1 bg-[#0D1B2A] border border-white/[0.08] text-[#D4AF37] font-mono text-xs font-bold rounded-lg shadow-sm">
-                    {svc.highlightMetric}
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0D1B2A] border border-[#D4AF37]/30 text-[#D4AF37]">
+                    {service.highlightMetric}
                   </span>
                 </div>
 
                 {/* Title & Tagline */}
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-white tracking-tight">
-                    {svc.title}
+                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight">
+                    {service.title}
                   </h3>
-                  <p className="text-xs uppercase tracking-wider text-[#D4AF37] font-bold mt-1">
-                    {svc.tagline}
+                  <p className="text-xs uppercase tracking-[0.16em] text-[#D4AF37] font-semibold mt-1">
+                    {service.tagline}
                   </p>
                 </div>
 
-                {/* Short Explanation */}
+                {/* Core Description */}
                 <p className="text-sm text-[#B8C4D3] leading-relaxed">
-                  {svc.shortExplanation}
+                  {service.shortExplanation}
                 </p>
 
-                {/* Benefits List */}
-                <div className="pt-2 space-y-2.5">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-white/90 block">
-                    Key Institutional Benefits:
+                {/* Key Benefits */}
+                <div className="pt-2">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8C4D3] block mb-2">
+                    Key Deliverables & Safeguards:
                   </span>
                   <ul className="space-y-2 text-xs text-[#B8C4D3]">
-                    {svc.benefits.map((b, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
+                    {service.benefits.map((b, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5">
                         <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </li>
@@ -305,37 +304,40 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 border-t border-white/[0.08]">
+              <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                 <button
-                  onClick={() => handleCtaClick(svc.id)}
-                  className="w-full py-3.5 px-4 bg-[#0D1B2A] hover:bg-[#D4AF37] text-white hover:text-[#07111F] border border-white/[0.1] hover:border-[#D4AF37] font-bold text-xs uppercase tracking-[0.14em] rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-sm active:scale-[0.99]"
+                  onClick={() => handleCtaClick(service.id)}
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#D4AF37] hover:text-white transition-colors cursor-pointer"
                 >
-                  <span>{svc.ctaText}</span>
+                  <span>{service.ctaText}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
+
+                <span className="text-[11px] font-mono text-[#B8C4D3]/60">RC 9075257</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Banner */}
-        <div className="luxury-card p-8 sm:p-10 rounded-2xl border border-white/[0.1] flex flex-col md:flex-row items-center justify-between gap-6 text-left">
-          <div className="space-y-2 max-w-2xl">
-            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
-              Custom Enterprise Agreements
+        {/* ================= PLATFORM COMPLIANCE BANNER ================= */}
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#0D1B2A] via-[#11253E] to-[#0D1B2A] border border-white/10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-2">
+            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37] block">
+              Official Platform Authorization
             </span>
             <h3 className="text-2xl font-bold font-display text-white">
-              Need A Bespoke Country-Wide Or Platform Contract?
+              Operating On Bigo, TikTok, Olamet, Chamet, Tandoo & Emma
             </h3>
-            <p className="text-xs sm:text-sm text-[#B8C4D3]">
-              We structure custom media buying budgets, bulk token reseller contracts, and exclusive agency partnerships across 25+ African nations.
+            <p className="text-xs sm:text-sm text-[#B8C4D3] max-w-xl">
+              Naijadoge acts as legal employer of record, salary clearinghouse, and direct agency sponsor across the top 6 platforms in Africa.
             </p>
           </div>
+
           <button
-            onClick={() => onNavigate('contact')}
-            className="px-8 py-4 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl cursor-pointer shrink-0 transition-all shadow-md"
+            onClick={() => onOpenApplyModal('host')}
+            className="px-8 py-4 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-lg shrink-0"
           >
-            Speak With Executive Desk
+            Apply To Stream Today
           </button>
         </div>
       </div>
