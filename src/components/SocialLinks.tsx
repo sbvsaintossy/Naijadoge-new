@@ -29,11 +29,11 @@ export const SocialLinks: React.FC<SocialLinksProps> = ({
     <div className={`flex items-center gap-2.5 ${className}`}>
       {/* TikTok */}
       <a
-        href="https://www.tiktok.com/@naijadogeagency"
+        href="https://www.tiktok.com/@naijadoge?_r=1&_t=ZS-9ADhZkebq1R"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="TikTok @naijadogeagency"
-        title="Follow NaijaDoge on TikTok (@naijadogeagency)"
+        aria-label="TikTok @naijadoge"
+        title="Follow NaijaDoge on TikTok"
         className={`group relative flex items-center justify-center rounded-full bg-[#0D1B2A] border border-white/10 hover:border-[#D4AF37] hover:bg-[#11253E] text-[#B8C4D3] hover:text-[#D4AF37] transition-all cursor-pointer ${sizeMap[iconSize]}`}
       >
         <svg

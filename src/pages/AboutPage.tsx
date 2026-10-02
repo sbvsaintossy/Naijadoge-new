@@ -14,6 +14,7 @@ import {
   Megaphone,
   CheckCircle2,
   ArrowRight,
+  ChevronLeft,
 } from 'lucide-react';
 
 interface AboutPageProps {
@@ -26,28 +27,44 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onOpenApplyModal,
 }) => {
   return (
-    <div className="relative min-h-screen bg-[#07111F] text-white pt-28 sm:pt-36 pb-24 overflow-hidden">
+    <div className="relative min-h-screen bg-[#07111F] text-white pt-24 sm:pt-32 pb-24 overflow-hidden">
       {/* Background Ambience */}
-      <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute top-10 right-1/4 w-[500px] h-[500px] bg-[#008751]/15 rounded-full blur-[160px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 left-10 w-[600px] h-[600px] bg-[#11253E]/40 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
+        {/* Navigation Breadcrumb back to independent Home */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <button
+            onClick={() => onNavigate('home')}
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#008751] hover:text-[#10B981] transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            <span>Back to Home Page (Flyer Hub)</span>
+          </button>
+
+          <div className="flex items-center gap-2 text-xs text-[#B8C4D3] font-mono">
+            <span>Independent Page:</span>
+            <span className="text-[#D4AF37]">/about</span>
+          </div>
+        </div>
+
         {/* ================= SECTION 1: HERO & CORPORATE IDENTITY ================= */}
         <section className="space-y-6 max-w-4xl text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/10 text-xs text-[#B8C4D3]">
-            <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-[#008751]/30 text-xs text-[#6EE7B7]">
+            <span className="w-2 h-2 rounded-full bg-[#008751]" />
             <span className="font-semibold text-white">Official Corporate Dossier</span>
             <span className="text-white/30">•</span>
             <span className="font-mono text-[#D4AF37] font-bold">RC 9075257</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display text-white tracking-tight leading-[1.08] uppercase">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black font-display text-white tracking-tight leading-[1.05] uppercase">
             ARCHITECTING THE FUTURE OF <br />
-            <span className="text-[#D4AF37]">AFRICAN DIGITAL MEDIA</span>
+            <span className="text-[#008751]">AFRICAN DIGITAL MEDIA</span>
           </h1>
 
           <p className="text-base sm:text-xl text-[#B8C4D3] font-normal leading-relaxed">
-            Naijadoge is Africa’s premier livestreaming management, media buying, and creator monetization institution. Registered under <strong className="text-white">RC 9075257</strong>, we operate across 25+ African nations to bridge local raw talent with the global livestreaming economy on <strong className="text-white">Bigo, TikTok, Olamet, Chamet, Tandoo, and Emma</strong>.
+            NaijaDoge Agency is Africa’s premier livestreaming management, media buying, and creator monetization institution. Registered under <strong className="text-white">RC 9075257</strong>, we operate across 25+ African nations to bridge local raw talent with the global livestreaming economy on <strong className="text-white">Bigo, TikTok, Olamet, Chamet, Tandoo, and Emma</strong>.
           </p>
         </section>
 
@@ -62,7 +79,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-[#07111F] via-[#07111F]/40 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-1 text-left">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#D4AF37] font-bold">
+              <span className="text-xs uppercase tracking-[0.2em] text-[#008751] font-bold">
                 Operations & Governance
               </span>
               <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
@@ -78,11 +95,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
         {/* ================= SECTION 3: VISION & MISSION ================= */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="luxury-card p-8 sm:p-10 rounded-2xl space-y-4 text-left">
-            <div className="w-12 h-12 rounded-xl bg-[#0D1B2A] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]">
+          <div className="luxury-card p-8 sm:p-10 rounded-2xl space-y-4 text-left border-l-4 border-l-[#008751]">
+            <div className="w-12 h-12 rounded-xl bg-[#0D1B2A] border border-[#008751]/30 flex items-center justify-center text-[#008751]">
               <Target className="w-6 h-6" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#008751]">
               Strategic Vision
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-display text-white">
@@ -93,11 +110,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             </p>
           </div>
 
-          <div className="luxury-card p-8 sm:p-10 rounded-2xl space-y-4 text-left">
-            <div className="w-12 h-12 rounded-xl bg-[#0D1B2A] border border-[#5B8DEF]/30 flex items-center justify-center text-[#5B8DEF]">
+          <div className="luxury-card p-8 sm:p-10 rounded-2xl space-y-4 text-left border-l-4 border-l-[#D4AF37]">
+            <div className="w-12 h-12 rounded-xl bg-[#0D1B2A] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]">
               <Globe2 className="w-6 h-6" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#5B8DEF]">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
               Operational Mission
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold font-display text-white">
@@ -112,14 +129,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         {/* ================= SECTION 4: THE 6 PARTNER PLATFORMS ================= */}
         <section className="space-y-8 text-left">
           <div className="space-y-2">
-            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
+            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#008751]">
               Accredited Agency Operations
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold font-display text-white">
               Direct Contracts On Africa’s Premier 6 Platforms
             </h2>
             <p className="text-sm text-[#B8C4D3] max-w-2xl">
-              Naijadoge maintains verified agency contracts and direct executive communication channels with Bigo Live, TikTok Live, Olamet, Chamet, Tandoo, and Emma.
+              NaijaDoge maintains verified agency contracts and direct executive communication channels with Bigo Live, TikTok Live, Olamet, Chamet, Tandoo, and Emma.
             </p>
           </div>
 
@@ -134,9 +151,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             ].map((p, i) => (
               <div
                 key={i}
-                className="p-4 rounded-xl bg-[#0D1B2A] border border-white/10 hover:border-[#D4AF37]/50 transition-all text-center space-y-1"
+                className="p-4 rounded-xl bg-[#0D1B2A] border border-white/10 hover:border-[#008751]/50 transition-all text-center space-y-1"
               >
-                <div className="w-8 h-8 rounded-lg bg-[#11253E] text-[#D4AF37] mx-auto flex items-center justify-center font-bold text-xs">
+                <div className="w-8 h-8 rounded-lg bg-[#11253E] text-[#008751] mx-auto flex items-center justify-center font-bold text-xs">
                   {p.name.slice(0, 2).toUpperCase()}
                 </div>
                 <h4 className="text-sm font-bold text-white mt-2">{p.name}</h4>
@@ -150,17 +167,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         <section className="p-8 sm:p-12 rounded-3xl bg-[#0D1B2A] border border-white/10 text-left space-y-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#008751]">
                 Regulatory Compliance
               </span>
               <h3 className="text-2xl font-bold font-display text-white">Corporate Governance</h3>
               <p className="text-xs sm:text-sm text-[#B8C4D3] leading-relaxed">
-                Incorporated under Corporate Affairs Commission registry <strong className="text-white font-mono">RC 9075257</strong>, Naijadoge operates in strict compliance with African and international digital commerce laws.
+                Incorporated under Corporate Affairs Commission registry <strong className="text-white font-mono">RC 9075257</strong>, NaijaDoge operates in strict compliance with African and international digital commerce laws.
               </p>
             </div>
 
             <div className="space-y-3">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#5B8DEF]">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37]">
                 Financial Clearing
               </span>
               <h3 className="text-2xl font-bold font-display text-white">100% Payout Security</h3>
@@ -182,7 +199,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
           <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#11253E] border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]">
+              <div className="w-10 h-10 rounded-full bg-[#11253E] border border-[#008751]/40 flex items-center justify-center text-[#008751]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
@@ -193,9 +210,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({
 
             <button
               onClick={() => onOpenApplyModal('host')}
-              className="px-6 py-3 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md"
+              className="px-6 py-3 bg-[#008751] hover:bg-[#007043] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md"
             >
-              Enroll In Naijadoge Network
+              Enroll In NaijaDoge Network
             </button>
           </div>
         </section>

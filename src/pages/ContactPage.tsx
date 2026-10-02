@@ -20,6 +20,7 @@ import {
   AlertCircle,
   Loader2,
   Tv,
+  ChevronLeft,
 } from 'lucide-react';
 
 interface ContactPageProps {
@@ -94,7 +95,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
   };
 
   const directWhatsAppUrl = `https://wa.me/22897317115?text=${encodeURIComponent(
-    `Hello Naijadoge Executive Desk, I sent a Formspree inquiry regarding ${formData.inquiryType} on ${formData.platform} (${formData.name}). Please review under RC 9075257.`
+    `Hello NaijaDoge Executive Desk, I sent an inquiry regarding ${formData.inquiryType} on ${formData.platform} (${formData.name}). Please review under RC 9075257.`
   )}`;
 
   const regionalHubs = [
@@ -125,16 +126,32 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#07111F] text-white pt-28 sm:pt-36 pb-24 overflow-hidden">
+    <div className="relative min-h-screen bg-[#07111F] text-white pt-24 sm:pt-32 pb-24 overflow-hidden">
       {/* Background ambience */}
-      <div className="absolute top-20 right-1/3 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute top-20 right-1/3 w-[500px] h-[500px] bg-[#008751]/15 rounded-full blur-[160px] pointer-events-none -z-10" />
       <div className="absolute bottom-20 left-10 w-[600px] h-[600px] bg-[#11253E]/40 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        {/* Navigation Breadcrumb back to independent Home */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <button
+            onClick={() => onNavigate('home')}
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#008751] hover:text-[#10B981] transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            <span>Back to Home Page (Flyer Hub)</span>
+          </button>
+
+          <div className="flex items-center gap-2 text-xs text-[#B8C4D3] font-mono">
+            <span>Independent Page:</span>
+            <span className="text-[#D4AF37]">/contact</span>
+          </div>
+        </div>
+
         {/* Page Header */}
         <div className="space-y-4 max-w-3xl text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/10 text-xs text-[#B8C4D3]">
-            <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-[#008751]/30 text-xs text-[#6EE7B7]">
+            <span className="w-2 h-2 rounded-full bg-[#008751]" />
             <span className="font-semibold text-white">Direct Executive Communications</span>
             <span className="text-white/30">•</span>
             <span className="font-mono text-[#D4AF37] font-bold">RC 9075257</span>
@@ -142,7 +159,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
 
           <h1 className="text-4xl sm:text-6xl font-black font-display text-white tracking-tight leading-[1.08] uppercase">
             CONNECT WITH <br />
-            <span className="text-[#D4AF37]">NAIJADOGE EXECUTIVE DESK</span>
+            <span className="text-[#008751]">NAIJADOGE EXECUTIVE DESK</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#B8C4D3] leading-relaxed">
@@ -156,12 +173,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
           <div className="lg:col-span-5 space-y-6 text-left">
             {/* Primary Verified Channels Card */}
             <div className="luxury-card p-6 sm:p-8 rounded-2xl space-y-6">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37] block">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#008751] block">
                 Official Contact Direct Channels
               </span>
 
               {/* WhatsApp Item */}
-              <div className="p-4 bg-[#0D1B2A] border border-white/10 rounded-xl flex items-center justify-between gap-4 group hover:border-[#D4AF37]/50 transition-all">
+              <div className="p-4 bg-[#0D1B2A] border border-white/10 rounded-xl flex items-center justify-between gap-4 group hover:border-[#008751]/50 transition-all">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                     <MessageSquare className="w-5 h-5" />
@@ -230,7 +247,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
 
               {/* Social Channels Section */}
               <div className="p-4 bg-[#0D1B2A] border border-white/10 rounded-xl space-y-3">
-                <span className="text-[10px] uppercase tracking-wider text-[#D4AF37] font-bold block">
+                <span className="text-[10px] uppercase tracking-wider text-[#008751] font-bold block">
                   Official Social Handles
                 </span>
                 <SocialLinks onOpenWeChat={onOpenWeChat} iconSize="md" />
@@ -243,7 +260,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
                     <span>Incorporation Status:</span>
                   </span>
-                  <span className="text-[#D4AF37] font-bold">Active & Verified</span>
+                  <span className="text-[#008751] font-bold">Active & Verified</span>
                 </div>
                 <div className="flex items-center justify-between font-mono">
                   <span>Corporate Registry Number:</span>
@@ -258,7 +275,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
 
             {/* Regional Hubs */}
             <div className="luxury-card p-6 sm:p-8 rounded-2xl space-y-4">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37] block">
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#008751] block">
                 Regional Operations Network
               </span>
               <div className="space-y-3">
@@ -270,7 +287,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         {hub.status}
                       </span>
                     </div>
-                    <p className="text-[11px] text-[#D4AF37] font-medium">{hub.location}</p>
+                    <p className="text-[11px] text-[#008751] font-medium">{hub.location}</p>
                     <p className="text-[11px] text-[#B8C4D3]">{hub.focus}</p>
                   </div>
                 ))}
@@ -282,7 +299,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
           <div className="lg:col-span-7">
             <div className="luxury-card p-6 sm:p-10 rounded-2xl space-y-6 text-left">
               <div className="space-y-2 border-b border-white/10 pb-5">
-                <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37] block">
+                <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#008751] block">
                   Encrypted Dispatch Form
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold font-display text-white">
@@ -301,7 +318,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                   <div className="space-y-2 max-w-md mx-auto">
                     <h4 className="text-2xl font-bold text-white font-display">Transmission Successful</h4>
                     <p className="text-xs sm:text-sm text-[#B8C4D3] leading-relaxed">
-                      Thank you, <strong className="text-white">{formData.name}</strong>. Your inquiry regarding <strong className="text-[#D4AF37]">{formData.inquiryType}</strong> on <strong className="text-white">{formData.platform}</strong> has been received by Naijadoge Executive Desk.
+                      Thank you, <strong className="text-white">{formData.name}</strong>. Your inquiry regarding <strong className="text-[#008751]">{formData.inquiryType}</strong> on <strong className="text-white">{formData.platform}</strong> has been received by NaijaDoge Executive Desk.
                     </p>
                   </div>
 
@@ -312,7 +329,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                     </div>
                     <div className="flex justify-between">
                       <span>Target Platform:</span>
-                      <span className="text-[#D4AF37]">{formData.platform}</span>
+                      <span className="text-[#008751]">{formData.platform}</span>
                     </div>
                     <div className="flex justify-between">
                       <span>WhatsApp:</span>
@@ -325,7 +342,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                       href={directWhatsAppUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] font-bold rounded-xl text-xs uppercase tracking-wider transition-all"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#008751] hover:bg-[#007043] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md"
                     >
                       <MessageSquare className="w-4 h-4" />
                       <span>Instant VIP WhatsApp Fast-Track</span>
@@ -370,7 +387,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Samuel Adeleke"
-                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-all"
+                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#008751] transition-all"
                       />
                     </div>
 
@@ -385,7 +402,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+234 800 000 0000"
-                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-all"
+                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#008751] transition-all"
                       />
                     </div>
                   </div>
@@ -402,7 +419,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="you@domain.com"
-                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-all"
+                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#008751] transition-all"
                       />
                     </div>
 
@@ -414,7 +431,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         name="platform"
                         value={formData.platform}
                         onChange={(e) => setFormData({ ...formData, platform: e.target.value })}
-                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#D4AF37] transition-all"
+                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#008751] transition-all"
                       >
                         <option value="Bigo Live">Bigo Live</option>
                         <option value="TikTok Live">TikTok Live</option>
@@ -435,7 +452,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         name="inquiryType"
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#D4AF37] transition-all"
+                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#008751] transition-all"
                       >
                         <option value="Host Recruitment">Host Recruitment & Onboarding</option>
                         <option value="Agent Recruitment">Regional Sub-Agency Licensing</option>
@@ -454,7 +471,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                         name="country"
                         value={formData.country}
                         onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#D4AF37] transition-all"
+                        className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-[#008751] transition-all"
                       >
                         <option value="Nigeria">Nigeria 🇳🇬</option>
                         <option value="Ghana">Ghana 🇬🇭</option>
@@ -482,7 +499,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Detail your streaming background, sub-host network size, token volume required, or agency proposal..."
-                      className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#D4AF37] transition-all resize-none"
+                      className="w-full bg-[#0D1B2A] border border-white/10 rounded-xl px-4 py-3 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#008751] transition-all resize-none"
                     />
                   </div>
 
@@ -490,7 +507,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
                     <button
                       type="submit"
                       disabled={status === 'submitting'}
-                      className="w-full py-4 px-6 bg-[#D4AF37] hover:bg-[#E8D38A] disabled:opacity-50 text-[#07111F] font-black text-xs uppercase tracking-[0.16em] rounded-xl transition-all cursor-pointer shadow-[0_4px_25px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2 active:scale-98"
+                      className="w-full py-4 px-6 bg-[#008751] hover:bg-[#007043] disabled:opacity-50 text-white font-black text-xs uppercase tracking-[0.16em] rounded-xl transition-all cursor-pointer shadow-[0_4px_25px_rgba(0,135,81,0.4)] flex items-center justify-center gap-2 active:scale-98"
                     >
                       {status === 'submitting' ? (
                         <>

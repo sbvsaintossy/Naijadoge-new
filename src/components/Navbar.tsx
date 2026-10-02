@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { SocialLinks } from './SocialLinks';
 import { PageType } from '../types';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, ExternalLink } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: PageType;
@@ -28,11 +28,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems: { id: PageType; label: string }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'contact', label: 'Contact' },
+  const navItems: { id: PageType; label: string; path: string }[] = [
+    { id: 'home', label: 'Home', path: '/' },
+    { id: 'about', label: 'About', path: '/about' },
+    { id: 'services', label: 'Services', path: '/services' },
+    { id: 'contact', label: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -41,45 +41,53 @@ export const Navbar: React.FC<NavbarProps> = ({
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-[#07111F]/95 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.8)] py-3'
-          : 'bg-gradient-to-b from-[#07111F]/90 to-transparent border-b border-white/10 py-4 sm:py-5'
+          : 'bg-gradient-to-b from-[#07111F]/90 via-[#07111F]/70 to-transparent border-b border-white/10 py-4 sm:py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Official Logo */}
-        <button
+        {/* Brand Official Logo matching flyer */}
+        <a
           id="nav-brand-logo-btn"
-          onClick={() => {
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
             onNavigate('home');
             setMobileMenuOpen(false);
           }}
-          className="cursor-pointer focus:outline-none transition-transform hover:opacity-95 text-left"
+          className="cursor-pointer focus:outline-none transition-transform hover:opacity-95 text-left flex items-center"
         >
           <Logo size="md" showTagline={false} />
-        </button>
+        </a>
 
-        {/* Desktop 4-Page Navigation */}
+        {/* Desktop Navigation to Independent Separate Pages */}
         <nav id="desktop-nav-menu" className="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium">
           {navItems.map((item) => {
             const isActive = currentPage === item.id;
             return (
-              <button
+              <a
                 key={item.id}
                 id={`nav-link-${item.id}`}
-                onClick={() => onNavigate(item.id)}
-                className={`relative py-1 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer ${
-                  isActive ? 'text-white' : 'text-[#B8C4D3] hover:text-white'
+                href={item.path}
+                onClick={(e) => {
+                  if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                    e.preventDefault();
+                    onNavigate(item.id);
+                  }
+                }}
+                className={`relative py-1 text-xs uppercase tracking-widest font-bold transition-colors cursor-pointer group flex items-center gap-1 ${
+                  isActive ? 'text-[#008751] sm:text-white' : 'text-[#B8C4D3] hover:text-white'
                 }`}
               >
-                {item.label}
+                <span>{item.label}</span>
                 {isActive && (
-                  <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-[#D4AF37] rounded-full shadow-[0_0_8px_#D4AF37]" />
+                  <span className="absolute -bottom-1.5 left-0 right-0 h-[2px] bg-[#008751] rounded-full shadow-[0_0_8px_#008751]" />
                 )}
-              </button>
+              </a>
             );
           })}
         </nav>
 
-        {/* Right Actions: Social Media Links + Join Agency Button */}
+        {/* Right Actions: Social Media Links (TikTok new link) + Join Agency Button */}
         <div className="hidden lg:flex items-center gap-5">
           {/* Header Clickable Social Icons */}
           <div className="flex items-center gap-2 border-r border-white/10 pr-4">
@@ -94,7 +102,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <button
             id="nav-apply-host-btn"
             onClick={() => onOpenApplyModal('host')}
-            className="bg-[#D4AF37] text-[#07111F] px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all cursor-pointer shadow-[0_2px_15px_rgba(212,175,55,0.3)] active:scale-95 inline-flex items-center justify-center gap-1.5"
+            className="bg-[#008751] hover:bg-[#007043] text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all cursor-pointer shadow-[0_2px_15px_rgba(0,135,81,0.4)] active:scale-95 inline-flex items-center justify-center gap-1.5"
           >
             <span>Join Agency</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -105,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-3 md:hidden">
           <button
             onClick={() => onOpenApplyModal('host')}
-            className="bg-[#D4AF37] text-[#07111F] px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider cursor-pointer"
+            className="bg-[#008751] text-white px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider cursor-pointer shadow-sm"
           >
             Join
           </button>
@@ -131,23 +139,28 @@ export const Navbar: React.FC<NavbarProps> = ({
             {navItems.map((item) => {
               const isActive = currentPage === item.id;
               return (
-                <button
+                <a
                   key={item.id}
-                  onClick={() => {
-                    onNavigate(item.id);
-                    setMobileMenuOpen(false);
+                  href={item.path}
+                  onClick={(e) => {
+                    if (!e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                      e.preventDefault();
+                      onNavigate(item.id);
+                      setMobileMenuOpen(false);
+                    }
                   }}
-                  className={`text-left text-sm uppercase tracking-widest font-bold py-2 border-b border-white/5 cursor-pointer ${
-                    isActive ? 'text-[#D4AF37]' : 'text-[#B8C4D3] hover:text-white'
+                  className={`text-left text-sm uppercase tracking-widest font-bold py-2 border-b border-white/5 cursor-pointer flex items-center justify-between ${
+                    isActive ? 'text-[#008751]' : 'text-[#B8C4D3] hover:text-white'
                   }`}
                 >
-                  {item.label}
-                </button>
+                  <span>{item.label} Page</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-50" />
+                </a>
               );
             })}
           </div>
 
-          {/* Mobile Social Media Links */}
+          {/* Mobile Social Media Links with new TikTok link */}
           <div className="pt-2 border-t border-white/10 space-y-3">
             <span className="text-[10px] uppercase tracking-widest font-bold text-[#D4AF37] block">
               Official Social Channels
@@ -167,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onOpenApplyModal('host');
                 setMobileMenuOpen(false);
               }}
-              className="w-full py-3 bg-[#D4AF37] text-[#07111F] text-xs font-bold uppercase tracking-widest rounded-xl text-center cursor-pointer shadow-md"
+              className="w-full py-3 bg-[#008751] text-white text-xs font-bold uppercase tracking-widest rounded-xl text-center cursor-pointer shadow-md"
             >
               Become A Host
             </button>

@@ -23,6 +23,14 @@
     font-family: 'Cabinet Grotesk', 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.02em;
   }
+
+  .font-script {
+    font-family: 'Caveat', cursive;
+  }
+
+  .font-cursive {
+    font-family: 'Kaushan Script', cursive;
+  }
 }
 
 /* Custom subtle scrollbar */

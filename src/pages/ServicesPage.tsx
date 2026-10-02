@@ -15,6 +15,7 @@ import {
   Zap,
   Sparkles,
   Radio,
+  ChevronLeft,
 } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -52,7 +53,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
       tagline: 'Empowering Regional Agency Entrepreneurs',
       iconName: 'Award',
       shortExplanation:
-        'We license and equip ambitious talent leaders to run their own sub-agencies under the Naijadoge enterprise umbrella, providing automated management dashboards and highest tier rev-share.',
+        'We license and equip ambitious talent leaders to run their own sub-agencies under the NaijaDoge enterprise umbrella, providing automated management dashboards and highest tier rev-share.',
       benefits: [
         'Institutional revenue share on all sub-host diamond volume',
         'Complete agent dashboard & real-time analytics suite',
@@ -175,23 +176,23 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   const getServiceIcon = (name: string) => {
     switch (name) {
       case 'Users':
-        return <Users className="w-8 h-8 text-[#D4AF37]" />;
+        return <Users className="w-8 h-8 text-[#008751]" />;
       case 'Award':
         return <Award className="w-8 h-8 text-[#5B8DEF]" />;
       case 'BarChart3':
         return <BarChart3 className="w-8 h-8 text-[#D4AF37]" />;
       case 'Megaphone':
-        return <Megaphone className="w-8 h-8 text-[#5B8DEF]" />;
+        return <Megaphone className="w-8 h-8 text-[#EA580C]" />;
       case 'Tv':
-        return <Tv className="w-8 h-8 text-[#D4AF37]" />;
+        return <Tv className="w-8 h-8 text-[#008751]" />;
       case 'Coins':
-        return <Coins className="w-8 h-8 text-[#5B8DEF]" />;
+        return <Coins className="w-8 h-8 text-[#E11D48]" />;
       case 'Sparkles':
         return <Sparkles className="w-8 h-8 text-[#D4AF37]" />;
       case 'DollarSign':
-        return <DollarSign className="w-8 h-8 text-[#5B8DEF]" />;
+        return <DollarSign className="w-8 h-8 text-[#10B981]" />;
       default:
-        return <Briefcase className="w-8 h-8 text-[#D4AF37]" />;
+        return <Briefcase className="w-8 h-8 text-[#008751]" />;
     }
   };
 
@@ -206,16 +207,32 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
   };
 
   return (
-    <div className="relative min-h-screen bg-[#07111F] text-white pt-28 sm:pt-36 pb-24 overflow-hidden">
+    <div className="relative min-h-screen bg-[#07111F] text-white pt-24 sm:pt-32 pb-24 overflow-hidden">
       {/* Background Lighting Ambience */}
-      <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-[#11253E]/30 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 w-[600px] h-[600px] bg-[#008751]/15 rounded-full blur-[160px] pointer-events-none -z-10" />
       <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        {/* Navigation Breadcrumb back to independent Home */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
+          <button
+            onClick={() => onNavigate('home')}
+            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#008751] hover:text-[#10B981] transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            <span>Back to Home Page (Flyer Hub)</span>
+          </button>
+
+          <div className="flex items-center gap-2 text-xs text-[#B8C4D3] font-mono">
+            <span>Independent Page:</span>
+            <span className="text-[#D4AF37]">/services</span>
+          </div>
+        </div>
+
         {/* ================= PAGE HEADER ================= */}
         <div className="space-y-4 max-w-3xl text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-white/10 text-xs text-[#B8C4D3]">
-            <span className="w-2 h-2 rounded-full bg-[#D4AF37]" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0D1B2A] border border-[#008751]/30 text-xs text-[#6EE7B7]">
+            <span className="w-2 h-2 rounded-full bg-[#008751]" />
             <span className="font-semibold text-white">Full-Stack Creator & Enterprise Infrastructure</span>
             <span className="text-white/30">•</span>
             <span className="font-mono text-[#D4AF37] font-bold">RC 9075257</span>
@@ -223,7 +240,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
 
           <h1 className="text-4xl sm:text-6xl font-black font-display text-white tracking-tight leading-[1.08] uppercase">
             THE 8 PILLARS OF <br />
-            <span className="text-[#D4AF37]">PAN-AFRICAN STREAMING POWER</span>
+            <span className="text-[#008751]">PAN-AFRICAN STREAMING POWER</span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#B8C4D3] leading-relaxed">
@@ -244,7 +261,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               onClick={() => setActiveTab(tab.id as any)}
               className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                 activeTab === tab.id
-                  ? 'bg-[#D4AF37] text-[#07111F] shadow-[0_2px_15px_rgba(212,175,55,0.3)]'
+                  ? 'bg-[#008751] text-white shadow-[0_2px_15px_rgba(0,135,81,0.4)]'
                   : 'bg-[#0D1B2A] hover:bg-[#11253E] text-[#B8C4D3] hover:text-white border border-white/10'
               }`}
             >
@@ -259,7 +276,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
             <div
               key={service.id}
               id={`service-card-${service.id}`}
-              className="luxury-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between space-y-8 hover:border-[#D4AF37]/50 transition-all group"
+              className="luxury-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between space-y-8 hover:border-[#008751]/50 transition-all group"
             >
               <div className="space-y-6">
                 {/* Header Row */}
@@ -267,7 +284,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <div className="w-14 h-14 rounded-2xl bg-[#0D1B2A] border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                     {getServiceIcon(service.iconName)}
                   </div>
-                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0D1B2A] border border-[#D4AF37]/30 text-[#D4AF37]">
+                  <span className="text-[11px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#0D1B2A] border border-[#008751]/30 text-[#6EE7B7]">
                     {service.highlightMetric}
                   </span>
                 </div>
@@ -277,7 +294,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <h3 className="text-2xl sm:text-3xl font-bold font-display text-white tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-xs uppercase tracking-[0.16em] text-[#D4AF37] font-semibold mt-1">
+                  <p className="text-xs uppercase tracking-[0.16em] text-[#008751] font-semibold mt-1">
                     {service.tagline}
                   </p>
                 </div>
@@ -295,7 +312,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
                   <ul className="space-y-2 text-xs text-[#B8C4D3]">
                     {service.benefits.map((b, idx) => (
                       <li key={idx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#008751] shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -307,7 +324,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
               <div className="pt-6 border-t border-white/10 flex items-center justify-between">
                 <button
                   onClick={() => handleCtaClick(service.id)}
-                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#D4AF37] hover:text-white transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#008751] hover:text-white transition-colors cursor-pointer"
                 >
                   <span>{service.ctaText}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -320,22 +337,22 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({
         </div>
 
         {/* ================= PLATFORM COMPLIANCE BANNER ================= */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#0D1B2A] via-[#11253E] to-[#0D1B2A] border border-white/10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-[#0D1B2A] via-[#042014] to-[#0D1B2A] border border-white/10 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2">
-            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#D4AF37] block">
+            <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#008751] block">
               Official Platform Authorization
             </span>
             <h3 className="text-2xl font-bold font-display text-white">
               Operating On Bigo, TikTok, Olamet, Chamet, Tandoo & Emma
             </h3>
             <p className="text-xs sm:text-sm text-[#B8C4D3] max-w-xl">
-              Naijadoge acts as legal employer of record, salary clearinghouse, and direct agency sponsor across the top 6 platforms in Africa.
+              NaijaDoge acts as legal employer of record, salary clearinghouse, and direct agency sponsor across the top 6 platforms in Africa.
             </p>
           </div>
 
           <button
             onClick={() => onOpenApplyModal('host')}
-            className="px-8 py-4 bg-[#D4AF37] hover:bg-[#E8D38A] text-[#07111F] text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-lg shrink-0"
+            className="px-8 py-4 bg-[#008751] hover:bg-[#007043] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-lg shrink-0"
           >
             Apply To Stream Today
           </button>
