@@ -139,13 +139,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate, onOpenWeCh
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#008751] hover:text-[#10B981] transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
-            <span>Back to Home Page (Flyer Hub)</span>
+            <span>Back to Home Page</span>
           </button>
-
-          <div className="flex items-center gap-2 text-xs text-[#B8C4D3] font-mono">
-            <span>Independent Page:</span>
-            <span className="text-[#D4AF37]">/contact</span>
-          </div>
         </div>
 
         {/* Page Header */}

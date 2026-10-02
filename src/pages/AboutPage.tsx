@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PageType } from '../types';
+import mediaCenterImage from '../assets/images/african_media_center_1790949552288.jpg';
 import {
   ShieldCheck,
   Globe2,
@@ -26,6 +27,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
   onNavigate,
   onOpenApplyModal,
 }) => {
+  const [imgSrc, setImgSrc] = useState(mediaCenterImage);
+
   return (
     <div className="relative min-h-screen bg-[#07111F] text-white pt-24 sm:pt-32 pb-24 overflow-hidden">
       {/* Background Ambience */}
@@ -40,13 +43,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#008751] hover:text-[#10B981] transition-colors cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
-            <span>Back to Home Page (Flyer Hub)</span>
+            <span>Back to Home Page</span>
           </button>
-
-          <div className="flex items-center gap-2 text-xs text-[#B8C4D3] font-mono">
-            <span>Independent Page:</span>
-            <span className="text-[#D4AF37]">/about</span>
-          </div>
         </div>
 
         {/* ================= SECTION 1: HERO & CORPORATE IDENTITY ================= */}
@@ -69,12 +67,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </section>
 
         {/* ================= SECTION 2: EXECUTIVE BROADCASTING HQ ASSET ================= */}
-        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-[#0D1B2A]">
           <img
-            src="/src/assets/images/african_media_hq_1788008287624.jpg"
-            alt="Naijadoge Executive Media Broadcasting Center"
-            className="w-full h-72 sm:h-[420px] object-cover object-center"
-            referrerPolicy="no-referrer"
+            src={imgSrc}
+            alt="NaijaDoge Executive Media Broadcasting Center"
+            className="w-full h-72 sm:h-[440px] object-cover object-center"
+            onError={() => {
+              if (imgSrc !== '/media_center.jpg') {
+                setImgSrc('/media_center.jpg');
+              } else {
+                setImgSrc('/african_media_hq.jpg');
+              }
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#07111F] via-[#07111F]/40 to-transparent" />
           <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
